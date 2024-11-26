@@ -23,36 +23,6 @@ camera = Camera(
     resolution=(1280, 720)  # Resolución de la imagen
 )
 camera.initialize()
-
-# Agregar un objeto dinámico al escenario para interacción
-cube = world.scene.add(
-    DynamicCuboid(
-        prim_path="/World/Cube",
-        name="cube",
-        position=np.array([0.5, 0.0, 0.5]),  # Posición inicial del cubo
-        size=0.05,  # Tamaño del cubo
-        color=np.array([1.0, 0.0, 0.0])  # Color rojo
-    )
-)
-
-# Iniciar la simulación
-world.reset()
-
-# Bucle principal de la simulación
-while omni.timeline.get_timeline_interface().is_playing():
-    # Avanzar un paso en la simulación
-    world.step(render=True)
-
-    # Obtener la imagen RGB de la cámara
-    rgb_image = camera.get_rgba()
-
-    # Procesar la imagen según sea necesario
-    # Por ejemplo, mostrar la forma de la imagen
-    print(f"Forma de la imagen RGB: {rgb_image.shape}")
-
-    # Detener la simulación después de un tiempo
-    if world.current_time_step_index >= 100:
-        break
-
-# Finalizar la aplicación de simulación
-omni.timeline.get_timeline_interface().stop()
+rgb_image = camera.get_rgba()
+print(rgb_image)
+print(f"Forma de la imagen RGB: {rgb_image.shape}")
