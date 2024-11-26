@@ -21,8 +21,8 @@ camera_prim_path = robot_prim_path + "/kuka_lwr_7_link/Camera"
 # Crear e inicializar la cámara
 camera = Camera(
     prim_path=camera_prim_path,
-    frequency=20,  # Frecuencia de captura en Hz
-    resolution=(1280, 720)  # Resolución de la imagen
+    frequency=30,  # Frecuencia de captura en Hz
+    resolution=(512, 512)  # Resolución de la imagen
 )
 camera.initialize()
 rgb_image = camera.get_rgb()
